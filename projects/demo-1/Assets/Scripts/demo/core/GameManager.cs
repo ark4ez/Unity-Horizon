@@ -27,6 +27,7 @@ namespace demo.core
             _debugTag = "[" + GetType().FullName + "] : ";
             State = GameState.Default;
             Debug.Log(_debugTag + "Game start");
+            DontDestroyOnLoad(gameObject);
         }
 
         private void FixedUpdate()
