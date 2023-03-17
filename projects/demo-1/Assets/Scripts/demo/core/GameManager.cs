@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 /*
@@ -7,17 +6,42 @@ using UnityEngine;
  */
 namespace demo.core
 {
+    // ゲームの状態を示す
+    public enum GameState
+    {
+        Default,
+        Error,
+    }
+
     /*
      * ゲームの進行関連
      */
     public class GameManager : MonoBehaviour
     {
-        private string _debugName;
+        private string _debugTag;
 
-        void Start()
+        private GameState State { get; set; }
+
+        private void Start()
         {
-            _debugName = "[" + GetType().FullName + "] : ";
-            Debug.Log(_debugName + "start");
+            _debugTag = "[" + GetType().FullName + "] : ";
+            State = GameState.Default;
+            Debug.Log(_debugTag + "Game start");
+        }
+
+        private void FixedUpdate()
+        {
+            switch (State)
+            {
+                case GameState.Default:
+                    // Debug.Log(_debugTag + "");
+                    break;
+                case GameState.Error:
+                    // Debug.Log("Error");
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
