@@ -1,32 +1,27 @@
-using System;
 using UnityEngine;
 
-/*
- * ゲームの中心となるパッケージ
- */
 namespace demo.core
 {
-    // ゲームの状態を示す
+    ///<summary>
+    /// ゲームの状態を示す
+    /// </summary>>
     public enum GameState
     {
         Default,
         Error,
     }
 
-    /*
-     * ゲームの進行関連
-     */
+    /// <summary>
+    /// ゲームの進行関連
+    /// </summary>
     public class GameManager : MonoBehaviour
     {
-        private string _debugTag;
-
         private GameState State { get; set; }
 
         private void Start()
         {
-            _debugTag = "[" + GetType().FullName + "] : ";
             State = GameState.Default;
-            Debug.Log(_debugTag + "Game start");
+            Debug.Log("Game manager is start");
             DontDestroyOnLoad(gameObject);
         }
 
@@ -35,14 +30,17 @@ namespace demo.core
             switch (State)
             {
                 case GameState.Default:
-                    // Debug.Log(_debugTag + "");
                     break;
                 case GameState.Error:
-                    // Debug.Log("Error");
                     break;
                 default:
                     break;
             }
+        }
+
+        private void OnDestroy()
+        {
+            Debug.Log("Game manager is destroy");
         }
     }
 }
