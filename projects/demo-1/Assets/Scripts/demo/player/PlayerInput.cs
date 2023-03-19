@@ -32,34 +32,33 @@ public class PlayerInput : MonoBehaviour
         ControllerInputAction = null;
         if (ControllerState == ControllerState.MainUI)
         {
-            ControllerInputAction += PlayerInputs.OnMainUIInput;
-        }
-        else
-        {
-            ControllerInputAction -= PlayerInputs.OnMainUIInput;
+            ControllerInputAction += new PlayerInputs().UpdateControllerAction;
         }
     }
 }
 
-
-public static class PlayerInputs
+public interface IPlayerInputs
 {
-    public static void OnMainUIInput()
+    void UpdateControllerAction();
+}
+
+public class PlayerInputs : IPlayerInputs
+{
+    public void UpdateControllerAction()
     {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            Debug.Log("W");
-        }
-
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        {
+        }
+
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
         }
 
