@@ -20,6 +20,7 @@ namespace demo.core
 
         private void Start()
         {
+            Application.targetFrameRate = 60;
             State = GameState.Default;
             Debug.Log("Game manager is start");
             DontDestroyOnLoad(gameObject);

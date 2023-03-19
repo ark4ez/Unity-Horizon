@@ -1,40 +1,74 @@
+using System;
+using demo.player;
 using UnityEngine;
 
 namespace demo.player
 {
-    // public interface IPlayerInputResolver
-    // {
-    //     void MoveUp();
-    //     void MoveDown();
-    //     void MoveLeft();
-    //     void MoveRight();
-    //     
-    // }
-
-    public class PlayerInput : MonoBehaviour
+    public enum ControllerState
     {
-        private void Start()
+        MainUI
+    }
+}
+
+public class PlayerInput : MonoBehaviour
+{
+    private ControllerState ControllerState { get; set; }
+
+    private Action ControllerInputAction { get; set; }
+
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+        ControllerState = ControllerState.MainUI;
+    }
+
+    private void Update()
+    {
+        ControllerInputAction?.Invoke();
+    }
+
+    private void FixedUpdate()
+    {
+        ControllerInputAction = null;
+        if (ControllerState == ControllerState.MainUI)
         {
-            DontDestroyOnLoad(gameObject);
+            ControllerInputAction += PlayerInputs.OnMainUIInput;
+        }
+        else
+        {
+            ControllerInputAction -= PlayerInputs.OnMainUIInput;
+        }
+    }
+}
+
+
+public static class PlayerInputs
+{
+    public static void OnMainUIInput()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            Debug.Log("W");
         }
 
-        private void Update()
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-            }
+        }
 
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-            }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+        }
 
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-            }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+        }
 
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-            }
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Backspace))
+        {
         }
     }
 }
