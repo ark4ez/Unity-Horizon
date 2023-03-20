@@ -17,7 +17,6 @@ namespace demo.ui
 
     public class MainUI : MonoBehaviour
     {
-        [SerializeField] private TextMeshProUGUI info;
 
         private UIVisibleState _uiVisibleState = UIVisibleState.Invisible;
         private UIState _uiState = UIState.Default;
@@ -25,12 +24,10 @@ namespace demo.ui
         private void Start()
         {
             DontDestroyOnLoad(gameObject);
-            info.text = "test";
         }
 
         private void FixedUpdate()
         {
-            // gameObject.SetActive(_uiVisibleState == UIVisibleState.Visible);
         }
     }
 }
