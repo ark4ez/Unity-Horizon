@@ -21,6 +21,8 @@ namespace demo.ui
         private UIVisibleState _uiVisibleState = UIVisibleState.Invisible;
         private UIState _uiState = UIState.Default;
 
+        [SerializeField] private GameObject info;
+
         private void Start()
         {
             DontDestroyOnLoad(gameObject);

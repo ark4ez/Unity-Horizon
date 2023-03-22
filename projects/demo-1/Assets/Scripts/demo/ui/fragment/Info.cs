@@ -8,6 +8,6 @@ namespace demo.ui.fragment
     /// </summary>
     public class Info : MonoBehaviour
     {
-        [Header("Information")]public TextMeshProUGUI info;
+        [Header("Information")] public TextMeshProUGUI info;
     }
 }
