@@ -1,8 +1,5 @@
 using Demo.data;
-using Demo.ui.fragment;
-using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Demo.ui
 {
@@ -27,7 +24,7 @@ namespace Demo.ui
         private UIState _uiState = UIState.Default;
 
         public fragment.Info infoView;
-        public InfoData infoData; 
+        public InfoData infoData;
 
         private void Start()
         {
