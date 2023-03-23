@@ -1,7 +1,10 @@
+using Demo.data;
+using Demo.ui.fragment;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace demo.ui
+namespace Demo.ui
 {
     internal enum UIVisibleState
     {
@@ -15,13 +18,16 @@ namespace demo.ui
         Error
     }
 
+    /// <summary>
+    /// Like Presenter
+    /// </summary>
     public class MainUI : MonoBehaviour
     {
-
         private UIVisibleState _uiVisibleState = UIVisibleState.Invisible;
         private UIState _uiState = UIState.Default;
 
-        [SerializeField] private GameObject info;
+        public fragment.Info infoView;
+        public InfoData infoData; 
 
         private void Start()
         {
@@ -30,6 +36,7 @@ namespace demo.ui
 
         private void FixedUpdate()
         {
+            infoView.SetText(infoData.text);
         }
     }
 }

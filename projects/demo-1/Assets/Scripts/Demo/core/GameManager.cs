@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace demo.core
+namespace Demo.core
 {
     ///<summary>
     /// ゲームの状態を示す
