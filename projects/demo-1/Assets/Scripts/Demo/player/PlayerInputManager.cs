@@ -4,33 +4,42 @@ using UnityEngine;
 
 namespace Demo.player
 {
-    public enum ControllerState
+    public enum InputState
     {
-        MainUI
+        MainUI1,
+        MainUI2,
     }
 }
 
+/// <summary>
+/// プレイヤーからの物理ボタン入力を管理する
+/// </summary>
 public class PlayerInputManager : MonoBehaviour
 {
     [SerializeField] private InputOnMainUI inputOnMainUI;
 
-    private ControllerState ControllerState { get; set; }
+    public InputState InputState { get; set; }
 
     private bool _changed;
 
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
-        inputOnMainUI.enabled = true;
-        ControllerState = ControllerState.MainUI;
+        InputState = InputState.MainUI1;
     }
 
     private void Update()
     {
-        if (_changed == false) return;
-        
-        if (ControllerState == ControllerState.MainUI) inputOnMainUI.enabled = true;
+        if (InputState == InputState.MainUI1)
+        {
+            inputOnMainUI.OnMainUI1();
+            return;
+        }
 
-        _changed = false;
+        if (InputState == InputState.MainUI2)
+        {
+            inputOnMainUI.OnMainUI2();
+            return;
+        }
     }
 }

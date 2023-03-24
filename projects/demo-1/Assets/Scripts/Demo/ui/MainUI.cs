@@ -1,5 +1,6 @@
-using Demo.data;
+using Demo.data.ui;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Demo.ui
 {
@@ -23,7 +24,16 @@ namespace Demo.ui
         private UIVisibleState _uiVisibleState = UIVisibleState.Invisible;
         private UIState _uiState = UIState.Default;
 
+        /// <summary>
+        /// visual elements of ui.
+        /// </summary>
         public fragment.Info infoView;
+        public Button ButtonW;
+        public Button ButtonA;
+        public Button ButtonS;
+        public Button ButtonD;        
+        public Button ButtonEsc;
+        
         public InfoData infoData;
 
         private void Start()
@@ -31,9 +41,10 @@ namespace Demo.ui
             DontDestroyOnLoad(gameObject);
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
             infoView.SetText(infoData.text);
+            ButtonA.Select();
         }
     }
 }

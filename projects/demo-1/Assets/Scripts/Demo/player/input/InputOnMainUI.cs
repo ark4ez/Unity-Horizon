@@ -1,42 +1,68 @@
-﻿using UnityEngine;
+﻿using Demo.data.ui;
+using UnityEngine;
 
 namespace Demo.player.input
 {
     public class InputOnMainUI : MonoBehaviour
     {
-        [SerializeField] data.InfoData infoData;
+        [SerializeField] InfoData infoData;
+        [SerializeField] PlayerInputManager playerInputManager;
 
-        private void Update()
+        public void OnMainUI1()
         {
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
-                infoData.SetString("w");
+                infoData.SetData("w");
+                playerInputManager.InputState = InputState.MainUI2;
+                return;
             }
 
             if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                infoData.SetString("a");
+                infoData.SetData("a");
+                playerInputManager.InputState = InputState.MainUI2;
+                return;
             }
 
             if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
             {
-                infoData.SetString("s");
+                infoData.SetData("s");
+                playerInputManager.InputState = InputState.MainUI2;
+                return;
             }
 
             if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
-                infoData.SetString("d");
+                infoData.SetData("d");
+                playerInputManager.InputState = InputState.MainUI2;
+                return;
             }
 
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                infoData.SetString("return");
+                infoData.SetData("return");
+                playerInputManager.InputState = InputState.MainUI2;
+                return;
             }
 
             if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Backspace))
             {
-                infoData.SetString("esc");
+                infoData.SetData("esc");
+                return;
             }
+
+            infoData.SetData("メニューを選択");
+        }
+
+        public void OnMainUI2()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Backspace))
+            {
+                infoData.SetData("esc");
+                playerInputManager.InputState = InputState.MainUI1;
+                return;
+            }
+            infoData.SetData("OnMainUI2");
         }
     }
 }
