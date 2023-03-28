@@ -5,7 +5,7 @@ namespace Demo.ui.fragment
 {
     public class Button : MonoBehaviour
     {
-        [SerializeField] private UnityEngine.UIElements.Button button;
+        [SerializeField] private UnityEngine.UI.Button button;
 
         public void ChangeColor(Color color)
         {

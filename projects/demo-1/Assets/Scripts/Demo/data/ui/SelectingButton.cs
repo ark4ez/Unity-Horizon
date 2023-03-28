@@ -10,7 +10,7 @@ namespace Demo.data.ui
         ApplicationQuit,
     }
     
-    public class Select : MonoBehaviour
+    public class SelectingButton : MonoBehaviour
     {
         public SelectButton currentSelectButton;
 
