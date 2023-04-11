@@ -31,7 +31,7 @@ namespace Demo.ui
         /// <summary>
         /// visual elements of ui.
         /// </summary>
-        public fragment.Info infoView;
+        public TextMeshProUGUI info;
 
         public Button Button0;
         public Button Button1;
@@ -53,13 +53,7 @@ namespace Demo.ui
 
         private void FixedUpdate()
         {
-            infoView.SetText(infoData.text);
-            // _eventSystem.
-
-            t_Button0.text = "hello0";
-            t_Button1.text = "hello1";
-            t_Button2.text = "hello2";
-            t_Button3.text = "hello3";
+            info.text = infoData.text;
         }
     }
 }

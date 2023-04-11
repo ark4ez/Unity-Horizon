@@ -810,7 +810,6 @@ GameObject:
   m_Component:
   - component: {fileID: 360250351}
   - component: {fileID: 360250352}
-  - component: {fileID: 360250353}
   - component: {fileID: 360250354}
   - component: {fileID: 360250355}
   m_Layer: 0
@@ -850,7 +849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventSystem: {fileID: 1410799439}
-  infoView: {fileID: 360250353}
+  info: {fileID: 298589578}
   Button0: {fileID: 1406913447}
   Button1: {fileID: 83689057}
   Button2: {fileID: 213005165}
@@ -861,19 +860,6 @@ MonoBehaviour:
   t_Button3: {fileID: 876032952}
   infoData: {fileID: 360250354}
   SelectingButton: {fileID: 360250355}
---- !u!114 &360250353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 360250350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35fd21d75c9b47dc967e3d6d1d7eba0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  info: {fileID: 298589578}
 --- !u!114 &360250354
 MonoBehaviour:
   m_ObjectHideFlags: 0
